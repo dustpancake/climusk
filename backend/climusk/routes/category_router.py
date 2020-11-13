@@ -14,11 +14,9 @@ async def retrieve_categories():
         ret.append(CategorySchema(**cat))
     return ret
 
-
 @router.get("/{name}")
 async def get_category(name: str):
     return await retrieve_categories()
-
 
 @router.post("/task")
 async def post_task(task: Task):
