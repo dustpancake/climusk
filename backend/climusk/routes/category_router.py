@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from climusk.database import database
-from climusk.models.category import CategorySchema
+from climusk.models.category import CategorySchema, Task
 
 
 router = APIRouter()
@@ -18,3 +18,10 @@ async def retrieve_categories():
 @router.get("/{name}")
 async def get_category(name: str):
     return await retrieve_categories()
+
+
+@router.post("/task")
+async def post_task(task: Task):
+    print(type(task))
+    print(task)
+    return {}
