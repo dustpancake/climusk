@@ -21,10 +21,17 @@ export default {
 
 <style scoped lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Avenir Next";
+  font-weight: 400;
+  font-style: normal;
+  color: $black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
   text-align: center;
-  color: #2c3e50;
+  // padding-bottom is being added dynamically within the Footer
 }
 </style>
