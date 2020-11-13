@@ -6,17 +6,23 @@ from climusk.models.schema import CategorySchema, Task
 
 router = APIRouter()
 
-category_collection = database.get_collection("categories")
+efforts_collection = database.get_collection("efforts")
 
-async def retrieve_categories():
-    ret = []
-    async for cat in category_collection.find():
-        ret.append(CategorySchema(**cat))
-    return ret
+async def efforts_collection():
+    
+    return efforts_collection.find_one()
+
+
+class Effort(BaseModel):
+
+    author_id: str = Field(...)
+    tasks: List[Task] = []
+    participants: List[User] =
 
 @router.get("/{name}")
 async def get_category(name: str):
-    return await retrieve_categories()
+    return await retrieve_categories({"name":name})
+
 
 @router.post("/task")
 async def post_task(task: Task):

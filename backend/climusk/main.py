@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from climusk.routes import category_router
+from climusk.routes import category_router, user_router
 
 app = FastAPI()
 
@@ -19,6 +19,10 @@ app.add_middleware(
 app.include_router(
     category_router.router,
     prefix="/category"
+)
+app.include_router(
+    user_router.router,
+    prefix="/user"
 )
 
 @app.get("/", tags=["Root"])
