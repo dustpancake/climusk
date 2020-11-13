@@ -4,13 +4,13 @@ Zurich Climathon 2020
 # Technical details
 
 - backend
-Python [Masonite](https://docs.masoniteproject.com/) stack, providing auth and API on a Mongo database.
+Python FastAPI based, providing auth and API on a Mongo database.
 
 - frontend
 JS Vue framework, single page web app
 
 
-MIT License, since Masonite is MIT.
+MIT License for historical reasons.
 
 ## Team members
 
