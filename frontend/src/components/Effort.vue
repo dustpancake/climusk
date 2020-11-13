@@ -17,9 +17,15 @@
 
   </b-row>
 
-  {{description}}
+  <div class="m-2">
+    {{description}}
+  </div>
 
-  <b-row align="center" justify="center">
+  <hr>
+  <Task v-for="task in tasks" :key="task.name" :name="task.name" :description="task.description" />
+  <hr>
+
+  <b-row align="center" justify="center" class="mt-2">
 
   <b-col>
     <b-btn variant="outline">
@@ -35,8 +41,6 @@
 
   </b-row>
 
-
-
   </Card>
 
 </template>
@@ -44,11 +48,12 @@
 
 <script>
 import Card from "./Card.vue"
+import Task from "./Task.vue"
 
 export default {
 
   components: {
-    Card
+    Card, Task
   },
 
   props: {
