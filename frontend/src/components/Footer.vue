@@ -52,9 +52,19 @@ footer {
   .footer-inner {
     padding: 50px 0;
     overflow: hidden;
+    font-weight: 500;
 
     .infos {
       float: left;
+
+      .heart {
+        $width: 12px;
+        background-image: url("../assets/heart.png");
+        background-size: $width $width;
+        height: $width;
+        width: $width;
+        display: inline-block;
+      }
     }
 
     .links {
@@ -67,7 +77,6 @@ footer {
           margin: 0;
         }
       }
-
     }
   }
 }
