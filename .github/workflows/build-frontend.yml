@@ -4,14 +4,14 @@ on:
   push:
     branches: [ main ]
 
-defaults:
-  run:
-    working-directory: frontend
-
 jobs:
   # vue build
   build:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: frontend
 
     steps:
     - uses: actions/checkout@v2
@@ -20,3 +20,29 @@ jobs:
     - name: Running Vue Build
       run: |
         npm run build
+    - name: Caching dist directory
+      uses: actions/upload-artifact@v2
+      with:
+        name: dist
+        path: /home/runner/work/climusk/climusk/frontend/dist
+        if-no-files-found: error
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/download-artifact@v2
+      with:
+        name: dist
+
+    - name: List directory
+      run: ls -la
+
+    - name: Deploy to gh-pages branch
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: .
+        CLEAN: true
