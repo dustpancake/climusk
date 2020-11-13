@@ -38,6 +38,7 @@ $logo-width: 80px;
   background: rgb(26,147,107);
   background: linear-gradient(227deg, rgba(26,147,107,1) 0%, rgba(13,123,103,1) 39%, rgba(15,120,103,1) 61%, rgba(0,92,98,1) 100%);
   box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px !important;
+  font-weight: 500;
 
   .navi {
     position: relative;
