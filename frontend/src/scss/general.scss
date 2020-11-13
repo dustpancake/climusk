@@ -35,4 +35,9 @@ a {
 
 a {
     cursor: pointer;
+    color: $black;
+
+    &:hover {
+        text-decoration: underline;
+    }
 }
