@@ -1,8 +1,8 @@
 <template>
-  <div class="ranking content-width">
+  <div class="ranking content-width content">
     <div class="title">
       <h1>Ranking</h1>
-      <FilterDropdown :options="['Friends', 'Neighbourhood', 'All citizens']" />
+      <FilterDropdown :options="['Friends', 'Neighbourhood', 'All citizens']" @filter-selected-option-changed="onFilterChanged"/>
     </div>
 
     <div v-if="isLoading">
@@ -61,8 +61,9 @@ export default {
     this.isLoading = false
   },
   methods: {
-    onFilterChanged() {
-      // reload data with filter properties
+    onFilterChanged(value) {
+      console.log(value)
+      // relodad data with value as new filter
     }
   }
 };
@@ -70,7 +71,6 @@ export default {
 
 <style scoped lang="scss">
 .ranking {
-  padding: 40px 0;
   position: relative;
 }
 

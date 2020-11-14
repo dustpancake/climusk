@@ -31,7 +31,6 @@ export default {
   overflow: hidden;
   display: block;
   position: relative;
-  text-align: center;
   // padding-bottom is being added dynamically within the Footer
 }
 </style>
