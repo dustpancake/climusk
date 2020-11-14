@@ -31,6 +31,7 @@ class Task(BaseModel):
     # required fields
     author_id: str = Field(...)
 
+    name: str
     descr: str
     points: int
 
