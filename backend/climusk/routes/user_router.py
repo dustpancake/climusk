@@ -26,7 +26,7 @@ async def add_user_to_effort(user, effort):
     updated_user = eff.get("users", [])
     updated_user.append(user.dict(exclude_unset=True))
     resp = await effort_collection.update_one(
-        {"effort_name": effort}, {"$set": {"user": updated_users}}
+        {"effort_name": effort}, {"$set": {"user": updated_user}}
     )
     return {"id": str(ret.inserted_id), "modified": resp.modified_count, "message": "ok"}
 
@@ -47,4 +47,4 @@ async def post_user(user: User):
 # add user to effort
 @router.post("/{effort}")
 async def add_user(effort: str, user: User):
-    return await add_task_to_effort(user, effort)
+    return await add_user_to_effort(user, effort)
