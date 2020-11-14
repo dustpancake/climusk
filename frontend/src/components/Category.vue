@@ -1,6 +1,11 @@
 <template>
   <b-jumbotron class="p-3">
-    <h3>{{title}}</h3>
+    <b-row>
+      <b-col><h3>{{title}}</h3></b-col>
+      <b-col>
+        <b-btn pill variant="outline-secondary" @click="addEffort(title)">+ Effort</b-btn>
+      </b-col>
+    </b-row>
     <div align="left" class="mb-2">
       {{description}}
     </div>
@@ -40,8 +45,13 @@ export default {
     },
     efforts: {
       type: Object
+    },
+    addEffort: {
+      type: Object,
+      default: (arg) => console.log(arg)
     }
   }
+
 }
 
 </script>

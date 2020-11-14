@@ -43,7 +43,10 @@ export default {
       if(this.username) {
         api.registerUser(this.username).then((resp) => {
           // if username is okay
-          if (resp.status == 200) this.$router.push('MyEfforts');
+          if (resp.status == 200) {
+            this.$store.commit("setCurrentUser", this.username);
+            this.$router.push('MyEfforts');
+          }
         });
       }
     }
