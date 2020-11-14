@@ -11,5 +11,8 @@ function get(path) {
   return axios.get(_api_root + path);
 }
 
+function healthcheck() {
+  return axios.get(_api_root);
+}
 
-export default { get };
+export default { get, healthcheck };
