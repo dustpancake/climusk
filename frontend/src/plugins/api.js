@@ -15,4 +15,12 @@ function healthcheck() {
   return axios.get(_api_root);
 }
 
-export default { get, healthcheck };
+function registerUser(username) {
+  var user = {
+    "uuid": "0",
+    "name": username
+  }
+  return axios.post(_api_root + "/user", user);
+}
+
+export default { get, healthcheck, registerUser };
