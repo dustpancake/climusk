@@ -9,9 +9,9 @@ class Status(BaseModel):
     status: str = Field(...)
 
 class User(BaseModel):
-    email: EmailStr
-    points: int
-    country: str
+    email: EmailStr = None
+    points: int = None
+    country: str = None
     following: List[str] = []
     followers: List[str] = []
     tasks: List[Status] = []
@@ -31,9 +31,9 @@ class Task(BaseModel):
     # required fields
     author_id: str = Field(...)
 
-    name: str
-    descr: str
-    points: int
+    name: str = None
+    descr: str = None
+    points: int = None
 
 class Effort(BaseModel):
 
@@ -46,12 +46,12 @@ class Effort(BaseModel):
 
 class CategorySchema(BaseModel):
 
-    category_name: str
+    category_name: str = None
     efforts: List[Effort] = []
 
 class FeedMessage(BaseModel):
-    message: str
+    message: str = None
 
 class Feed(BaseModel):
-    user_id: str
+    user_id: str = None
     messages: List[FeedMessage] = []
