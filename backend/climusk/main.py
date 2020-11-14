@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from climusk.routes import category_router, user_router
+from climusk.routes import category_router, user_router, effort_router
 
 app = FastAPI()
 
