@@ -1,11 +1,15 @@
 <template>
-  <b-jumbotron class="p-3" fluid>
+  <b-jumbotron class="p-3">
     <h3>{{title}}</h3>
     <div align="left" class="mb-2">
       {{description}}
     </div>
 
-    <Effort v-for="effort in efforts" :key="effort.title" />
+    <Effort v-for="effort in efforts" :key="effort.id"
+    :title="effort.name"
+    :author="effort.author_id"
+    :tasks="effort.tasks"
+    />
 
   </b-jumbotron>
 </template>
@@ -14,11 +18,13 @@
 <script>
 import Effort from "./Effort.vue"
 
+/*
 import api from "@/plugins/api.js"
 
-function get_efforts_for(category, callback) {
-  api.get(`/category/${category}`).then(callback)
+function get_effort(effort, callback) {
+  api.get(`/effort/${category}`).then(callback)
 }
+*/
 
 export default {
   components: {
@@ -31,19 +37,10 @@ export default {
     description: {
       type: String,
       default: "This is a category."
+    },
+    efforts: {
+      type: Object
     }
-  },
-
-  data() {
-    return {
-      efforts: [] // default value
-    }
-  },
-
-  mounted: function(){
-    get_efforts_for(this.title, (result)=>{
-      this.efforts = result.data;
-    });
   }
 }
 
