@@ -31,6 +31,7 @@ class Task(BaseModel):
     # required fields
     author_id: str = Field(...)
 
+    name: str
     descr: str
     points: int
 
@@ -38,9 +39,10 @@ class Effort(BaseModel):
 
     # required fields
     author_id: str = Field(...)
+    name: str = Field(...)
 
-    tasks: List[Task] = []
-    participants: List[User] = []
+    tasks: List[Task] = None
+    participants: List[User] = None
 
 class CategorySchema(BaseModel):
 

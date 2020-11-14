@@ -1,18 +1,30 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h3 class="m-4">API status: {{status}}</h3>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import api from '@/plugins/api.js'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+
+  data() {
+    return {
+      status: "Down"
+    }
+  },
+
+  mounted: function() {
+    api.healthcheck().then((resp) => {
+      console.log(resp)
+      if (resp.status == 200) {
+        this.status = "Up";
+      }
+    })
   }
+
 }
 </script>

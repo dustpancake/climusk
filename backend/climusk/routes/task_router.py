@@ -1,19 +1,22 @@
 from fastapi import APIRouter
 
 from climusk.database import database
-from climusk.models.schema import Effort, User
+from climusk.models.schema import Task
 
 
 router = APIRouter()
 
-effort_collection = database.get_collection("efforts")
+task_collection = database.get_collection("tasks")
 
-async def retrieve_effort(effort_id):
-  ret = await effort_collection.find_one({"effort_id":effort_id})
-  return Effort(**ret)
+async def retrieve_task(task_id):
+  ret = await task_collection.find_one({"task_id":task_id})
+  return Task(**ret)
 
 @router.get("/{oid}")
-async def get_effort(oid: str):
-    return await retrieve_effort(oid)
+async def get_task(oid: str):
+    return await retrieve_task(oid)
+
+
+
 
 
