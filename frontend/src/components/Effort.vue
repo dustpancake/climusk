@@ -22,7 +22,7 @@
   </div>
 
   <hr>
-  <Task v-for="task in tasks" :key="task.name" :name="task.name" :description="task.description" />
+  <Task v-for="task in tasks" :key="task.name" :name="task.name" :description="task.descr" />
   <hr>
 
   <b-row align="center" justify="center" class="mt-2">
