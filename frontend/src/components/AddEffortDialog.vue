@@ -1,5 +1,6 @@
 <template>
-  <b-modal id="effort-modal" :title=modal_title>
+  <b-modal id="effort-modal" :title="modal_title">
+
     <b-row class="mt-3">
       <b-col>
         Name:
@@ -10,6 +11,7 @@
         ></b-form-input>
       </b-col>
     </b-row>
+
     <b-row class="mt-3">
       <b-col>
         Description:
@@ -20,6 +22,7 @@
         ></b-form-input>
       </b-col>
     </b-row>
+
   </b-modal>
 </template>
 
@@ -33,7 +36,7 @@ export default {
   },
   computed: {
     modal_title: () => {
-      return "Add Effort to " + this.category;
+      return "Add Effort"
     }
   }
 }
