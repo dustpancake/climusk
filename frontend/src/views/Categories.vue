@@ -1,5 +1,5 @@
 <template>
-  <div class="categories m-4">
+  <div class="categories m-4 content-width content">
     <b-row class="justify-content-md-center">
       <b-col v-for="cat in categories" :key="cat.category_name">
         <Category :title="cat.category_name" :efforts="cat.efforts"/>

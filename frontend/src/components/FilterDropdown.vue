@@ -1,9 +1,9 @@
 <template>
   <div class="filter-dropdown" v-click-outside="hideDropdown">
     <div class="filter-btn" @click="isCollapsed = !isCollapsed">
-      <p>{{ options[preSelectedOption] }}</p>
+      <p>{{ selectedOption }}</p>
       <ul v-show="isCollapsed">
-        <li v-for="(option, index) in options" :key="index" @click="hideDropdown">
+        <li v-for="(option, index) in options" :key="index" @click="onOptionClicked(option)">
           {{ option }}
         </li>
       </ul>
@@ -26,12 +26,17 @@ export default {
     },
     data(){
       return {
+        selectedOption: this.options[this.preSelectedOption],
         isCollapsed: false
       }
     },
     methods: {
       hideDropdown() {
         this.isCollapsed = false
+      },
+      onOptionClicked(option) {
+        this.selectedOption = option
+        this.$emit('filter-selected-option-changed', option);
       }
     }
 }
